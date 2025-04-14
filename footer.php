@@ -18,10 +18,9 @@
                 School Motto: "Self discipline and determination leads to knowledge"
             </a>
         </div>
-    </div>
-
-    <div class="container2">
-        <p>Copyright © 2025. Kamuiru High School | All Rights Reserved</p>
+        <div class="container2">
+            <p>Copyright © 2025. Kamuiru High School | All Rights Reserved</p>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
