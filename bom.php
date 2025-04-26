@@ -9,19 +9,36 @@ include 'navbar.php';
         line-height: 1.6;
         color: #333;
         background-color: #f9f9f9;
+<<<<<<< HEAD
+=======
+        margin: 0;
+        padding: 0;
+    }
+
+    .page-wrapper {
+>>>>>>> 0b73ba4 (Configured line endings)
         max-width: 1200px;
         margin: 0 auto;
         padding: 20px;
     }
+<<<<<<< HEAD
     nav.classroom {
         display: flex;
         justify-content: space-around;
+=======
+
+    nav.clasroom {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+>>>>>>> 0b73ba4 (Configured line endings)
         background-color: #fff;
         padding: 15px;
         border-radius: 5px;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         margin-bottom: 30px;
     }
+<<<<<<< HEAD
     .container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -35,21 +52,78 @@ include 'navbar.php';
         overflow: hidden;
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         transition: transform 0.3s ease;
+=======
+
+    nav.clasroom .nav-link {
+        text-decoration: none;
+        color: #3498db;
+        font-weight: bold;
+        font-size: 1.1em;
+        padding: 8px 15px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    nav.clasroom .nav-link:hover {
+        background-color: #3498db;
+        color: #fff;
+    }
+
+    h1 {
+        color: #2c3e50;
+        text-align: center;
+        margin: 30px 0;
+        font-size: 2.5em;
+    }
+
+    .container-main {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+    }
+
+    .bom-member {
+        background-color: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+>>>>>>> 0b73ba4 (Configured line endings)
     }
 
     .bom-member:hover {
         transform: translateY(-5px);
+<<<<<<< HEAD
+=======
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+>>>>>>> 0b73ba4 (Configured line endings)
     }
 
     .bom-member img {
         width: 100%;
+<<<<<<< HEAD
         height: 300px;
         object-fit: cover;
         border-bottom: 3px solid #3498db;
+=======
+        height: 350px;
+        object-fit: contain;
+        background-color: #f0f0f0;
+        padding: 10px;
+>>>>>>> 0b73ba4 (Configured line endings)
     }
 
     .member-info {
         padding: 20px;
+<<<<<<< HEAD
+=======
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+>>>>>>> 0b73ba4 (Configured line endings)
     }
 
     .member-title {
@@ -57,12 +131,18 @@ include 'navbar.php';
         font-size: 1.3em;
         margin-bottom: 10px;
         font-weight: bold;
+<<<<<<< HEAD
         border-bottom: 1px solid #eee;
         padding-bottom: 8px;
+=======
+        border-bottom: 2px solid #eee;
+        padding-bottom: 5px;
+>>>>>>> 0b73ba4 (Configured line endings)
     }
 
     .member-name {
         color: #3498db;
+<<<<<<< HEAD
         font-size: 1.1em;
         margin-bottom: 15px;
     }
@@ -174,9 +254,121 @@ include 'navbar.php';
             <div class="member-bio">
                 <p>As the Deputy Principal in charge of Boarding, I am proud to share with you the developments and ongoing efforts within our school's boarding section. Our boarding program provides a safe and supportive environment for student growth.</p>
                 <p>We remain dedicated to improving the boarding experience and ensuring that Kamuiru Boys continues to produce well-rounded, disciplined, and successful individuals.</p>
+=======
+        font-size: 1.2em;
+        margin: 10px 0;
+    }
+
+    .member-bio p {
+        color: #555;
+        text-align: justify;
+        margin-bottom: 10px;
+    }
+
+    @media (max-width: 768px) {
+        nav.clasroom {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 2em;
+        }
+
+        .bom-member img {
+            height: 300px;
+        }
+    }
+</style>
+
+<div class="page-wrapper">
+    <nav class="clasroom">
+        <a href="alumni.php" class="nav-link">Alumni</a>
+        <a href="bom.php" class="nav-link">B.O.M</a>
+    </nav>
+
+    <h1>Board of Management</h1>
+
+    <div class="container-main">
+        <!-- Board Chairman -->
+        <div class="bom-member">
+            <img src="https://www.kamuiruhigh.sc.ke/assets/BOMChairman-d814eba7.jpeg" alt="CPA. Kennedy Muriithi Ngiabi">
+            <div class="member-info">
+                <div class="member-title">BOARD CHAIRMAN</div>
+                <div class="member-name">CPA. Kennedy Muriithi Ngiabi</div>
+                <div class="member-bio">
+                    <p>The current chairman is serving his second term as chair. He is an alumnus of Kamuiru Boys High School. A professional accountant and former chairperson of the Kirinyaga County Public Service Board.</p>
+                    <p>He is passionate about school growth, evident in the infrastructure development and income-generating projects initiated under his leadership.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- PA Chairman -->
+        <div class="bom-member">
+            <img src="https://www.kamuiruhigh.sc.ke/assets/PA-339f07df.svg" alt="Mr. Peter Ng'ang'a">
+            <div class="member-info">
+                <div class="member-title">PA CHAIRMAN</div>
+                <div class="member-name">Mr. Peter Ng'ang'a</div>
+                <div class="member-bio">
+                    <p>Professionally a conservator with the Kenya Forest Service. Elected unanimously by parents in 2023. His passion for tree cover is remarkable.</p>
+                    <p>All his sons attended Kamuiru Boys High School, with his youngest currently in Form 3.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chief Principal -->
+        <div class="bom-member">
+            <img src="https://www.kamuiruhigh.sc.ke/assets/Mr.Rukenya-c835777b.jpg" alt="Mr. Rukenya J.K">
+            <div class="member-info">
+                <div class="member-title">CHIEF PRINCIPAL</div>
+                <div class="member-name">Mr. Rukenya J.K</div>
+                <div class="member-bio">
+                    <p>Kamuiru Boys High School offers excellence in education and holistic growth. We nurture curiosity, creativity, respect, and inclusivity for all students.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Deputy Principal Administration -->
+        <div class="bom-member">
+            <img src="https://www.kamuiruhigh.sc.ke/assets/DeputyDi-396b543b.svg" alt="Mr. Godfrey I. Kabwana">
+            <div class="member-info">
+                <div class="member-title">DEPUTY PRINCIPAL ADMINISTRATION</div>
+                <div class="member-name">Mr. Godfrey I. Kabwana</div>
+                <div class="member-bio">
+                    <p>Responsible for discipline, curriculum implementation, and fostering a positive learning atmosphere for over 1,500 students.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Deputy Principal Academics -->
+        <div class="bom-member">
+            <img src="https://www.kamuiruhigh.sc.ke/assets/DeputyAcademic-5eeb2f44.svg" alt="Festus K. Wachira">
+            <div class="member-info">
+                <div class="member-title">DEPUTY PRINCIPAL ACADEMICS</div>
+                <div class="member-name">Festus K. Wachira</div>
+                <div class="member-bio">
+                    <p>Leads curriculum development and instructional supervision, aiming to create a research-driven and innovative academic environment.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Deputy Principal Boarding -->
+        <div class="bom-member">
+            <img src="https://www.kamuiruhigh.sc.ke/assets/FrancisKiungitu-dbc5d3a3.jpeg" alt="Mr. Francis M. Kiunguti">
+            <div class="member-info">
+                <div class="member-title">DEPUTY PRINCIPAL BOARDING</div>
+                <div class="member-name">Mr. Francis M. Kiunguti</div>
+                <div class="member-bio">
+                    <p>Heads the boarding department, committed to maintaining a safe, nurturing environment for students' overall development and success.</p>
+                </div>
+>>>>>>> 0b73ba4 (Configured line endings)
             </div>
         </div>
     </div>
 </div>
 
+<<<<<<< HEAD
 <?php include 'footer.php'; ?>
+=======
+<?php include 'footer.php'; ?>
+>>>>>>> 0b73ba4 (Configured line endings)

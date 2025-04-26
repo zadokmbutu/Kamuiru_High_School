@@ -8,12 +8,29 @@ include 'navbar.php';
         font-family: 'Arial', sans-serif;
         line-height: 1.6;
         color: #333;
+<<<<<<< HEAD
         max-width: 1200px;
         margin: 0 auto;
         padding: 20px;
         background-color: #f9f9f9;
     }
     
+=======
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+    }
+
+    .content-section {
+        background-color: white;
+        padding: 25px;
+        margin: 20px auto;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        max-width: 1200px;
+    }
+
+>>>>>>> 0b73ba4 (Configured line endings)
     nav.container {
         display: flex;
         justify-content: space-around;
@@ -21,9 +38,16 @@ include 'navbar.php';
         padding: 15px;
         border-radius: 5px;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+<<<<<<< HEAD
         margin-bottom: 30px;
     }
     
+=======
+        margin: 20px auto;
+        max-width: 1200px;
+    }
+
+>>>>>>> 0b73ba4 (Configured line endings)
     .nav-link {
         color: #2c3e50;
         text-decoration: none;
@@ -33,6 +57,7 @@ include 'navbar.php';
         transition: all 0.3s ease;
         border-radius: 4px;
     }
+<<<<<<< HEAD
     
     .nav-link:hover {
         color: #3498db;
@@ -46,20 +71,35 @@ include 'navbar.php';
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
     
+=======
+
+    .nav-link:hover {
+        color: #3498db;
+    }
+
+>>>>>>> 0b73ba4 (Configured line endings)
     h1 {
         color: #2c3e50;
         text-align: center;
         margin: 30px 0;
         font-size: 2.5em;
     }
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 0b73ba4 (Configured line endings)
     h2, h3 {
         color: #3498db;
         margin: 25px 0 15px;
         border-bottom: 2px solid #eee;
         padding-bottom: 8px;
     }
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 0b73ba4 (Configured line endings)
     img {
         max-width: 100%;
         height: auto;
@@ -68,14 +108,22 @@ include 'navbar.php';
         border-radius: 5px;
         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 0b73ba4 (Configured line endings)
     .mission-vision {
         display: flex;
         flex-wrap: wrap;
         gap: 20px;
         margin-bottom: 30px;
     }
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 0b73ba4 (Configured line endings)
     .mission-vision > div {
         flex: 1;
         min-width: 300px;
@@ -84,23 +132,39 @@ include 'navbar.php';
         border-radius: 5px;
         border-left: 4px solid #3498db;
     }
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 0b73ba4 (Configured line endings)
     .core-values {
         columns: 2;
         column-gap: 30px;
     }
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 0b73ba4 (Configured line endings)
     .core-values ul {
         list-style-type: none;
         padding: 0;
     }
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 0b73ba4 (Configured line endings)
     .core-values li {
         margin-bottom: 10px;
         padding-left: 25px;
         position: relative;
     }
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 0b73ba4 (Configured line endings)
     .core-values li:before {
         content: "✓";
         color: #27ae60;
@@ -108,22 +172,38 @@ include 'navbar.php';
         left: 0;
         font-weight: bold;
     }
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 0b73ba4 (Configured line endings)
     @media (max-width: 768px) {
         nav.container {
             flex-direction: column;
         }
+<<<<<<< HEAD
         
         .mission-vision > div {
             min-width: 100%;
         }
         
+=======
+
+        .mission-vision > div {
+            min-width: 100%;
+        }
+
+>>>>>>> 0b73ba4 (Configured line endings)
         .core-values {
             columns: 1;
         }
     }
 </style>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0b73ba4 (Configured line endings)
 <nav class="container">
     <a href="alumni.php" class="nav-link">Alumni</a>
     <a href="bom.php" class="nav-link">B.O.M</a>
