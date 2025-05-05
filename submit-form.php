@@ -1,49 +1,46 @@
 <?php
 
-//Import PHPMailer classes into the global namespace
-//These must be at the top of your script, not inside a function
+// Import PHPMailer classes into the global namespace
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-//Load Composer's autoloader (created by composer, not included with PHPMailer)
+// Load Composer's autoloader
 require 'vendor/autoload.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    echo('Inside');
+    // Sanitize form inputs
     $name    = htmlspecialchars(trim($_POST["name"]));
     $email   = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
-    $subject = htmlspecialchars(trim($_POST["subject"]));git
+    $subject = htmlspecialchars(trim($_POST["subject"]));
     $message = htmlspecialchars(trim($_POST["message"]));
 
+    // Create a new PHPMailer instance
     $mail = new PHPMailer(true);
 
     try {
-        echo('Inside');
-        // SMTP Configuration
+        // SMTP configuration
         $mail->isSMTP();
         $mail->Host       = 'smtp.gmail.com';
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'clemoh87@gmail.com';          // Replace with your Gmail
-        $mail->Password   = 'yrvbzejigickcpbv';            // Replace with your Gmail App Password
+        $mail->Username   = 'clemoh87@gmail.com';          // Your Gmail address
+        $mail->Password   = 'yrvbzejigickcpbv';            // Your Gmail App Password
         $mail->SMTPSecure = 'tls';
         $mail->Port       = 587;
 
-        // Sender & recipient
+        // Sender and recipient settings
         $mail->setFrom($mail->Username, $name);
-        $mail->addAddress($email);           // Where the message is sent
+        $mail->addAddress($email); // Sends a copy to the sender — you might want to change this
 
         // Email content
         $mail->isHTML(false);
         $mail->Subject = "Contact Form: $subject";
-        $mail->Body    = "Name: $name
-Email: $email
-Subject: $subject
+        $mail->Body    = "Name: $name\nEmail: $email\nSubject: $subject\n\nMessage:\n$message";
 
-Message:
-$message";
-
+        // Send the email
         $mail->send();
+
+        // Redirect after successful send
         header("Location: thankyou.php");
         exit();
 
