@@ -1,45 +1,35 @@
 <?php
-session_start();
+include 'db.php'; // Connect to your database
 
-// Example users (use a database in real apps)
-$users = [
-    ['username' => 'admin', 'password' => 'secret123', 'role' => 'admin'],
-    ['username' => 'student1', 'password' => 'student123', 'role' => 'student'],
-    ['username' => 'teacher1', 'password' => 'teacher123', 'role' => 'teacher']
-];
+// Get the form input
+$username = $_POST['username'];
+$password = $_POST['password'];
 
-// Get login credentials
-$username = $_POST['username'] ?? '';
-$password = $_POST['password'] ?? '';
+// Query to get user data
+$sql = "SELECT * FROM users WHERE username = ?";
+$stmt = $pdo->prepare($sql);
+$stmt->execute([$username]);
 
-$found = false;
+$user = $stmt->fetch();
 
-foreach ($users as $user) {
-    if ($user['username'] === $username && $user['password'] === $password) {
-        $_SESSION['username'] = $username;
-        $_SESSION['role'] = $user['role'];
-        $found = true;
-
-        // Redirect based on role
-        switch ($user['role']) {
-            case 'admin':
-                header("Location: admin_dashboard.php");
-                break;
-            case 'student':
-                header("Location: student_dashboard.php");
-                break;
-            case 'teacher':
-                header("Location: teacher_dashboard.php");
-                break;
-        }
-        exit();
+// Check if the user exists and verify the password
+if ($user && password_verify($password, $user['password'])) {
+    // Successful login
+    session_start();
+    $_SESSION['username'] = $user['username'];
+    $_SESSION['role'] = $user['role'];
+    
+    // Redirect based on role
+    if ($user['role'] == 'admin') {
+        header('Location: admin_dashboard.php');
+    } elseif ($user['role'] == 'teacher') {
+        header('Location: teacher_dashboard.php');
+    } elseif ($user['role'] == 'student') {
+        header('Location: student_dashboard.php');
     }
-}
-
-if (!$found) {
-    echo "<script>
-        alert('Invalid username or password');
-        window.location.href = 'login.php';
-    </script>";
+    exit();
+} else {
+    // Invalid login
+    echo "Invalid username or password.";
 }
 ?>
