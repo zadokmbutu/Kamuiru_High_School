@@ -223,4 +223,9 @@ include 'navbar.php';
         </div>
     </div>
 
+    <p style="text-align:center;">
+    <a href="join.php" style="color:#3498db; font-weight:bold;">Click here to join the Kamuiru Alumni Association</a>
+</p>
+
+
 <?php include 'footer.php';?>

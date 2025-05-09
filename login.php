@@ -45,7 +45,8 @@ include 'navbar.php';
         font-weight: bold;
     }
 
-    .form-group input {
+    .form-group input,
+    .form-group select {
         width: 100%;
         padding: 10px;
         border: 1px solid #ccc;
@@ -75,13 +76,24 @@ include 'navbar.php';
         <h2>User Login</h2>
         <form action="process_login.php" method="POST">
             <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                <label for="username">User ID</label>
+                <input type="text" id="username" name="username" placeholder="Enter your ID" required>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" placeholder="Enter your password" required>
             </div>
+            
+            <div class="form-group">
+                <label for="role">Login As</label>
+                <select id="role" name="role" required>
+                    <option value="">-- Select Role --</option>
+                    <option value="student">Student</option>
+                    <option value="teacher">Teacher</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </div>
+
             <button type="submit" class="sign-in-btn">Sign In</button>
         </form>
     </div>

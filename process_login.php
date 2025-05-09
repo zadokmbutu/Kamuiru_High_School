@@ -1,35 +1,68 @@
 <?php
-include 'db.php'; // Connect to your database
+session_start();
 
-// Get the form input
-$username = $_POST['username'];
-$password = $_POST['password'];
+// Database connection
+$host = "localhost";
+$db_user = "root"; // change if your DB username is different
+$db_pass = "";     // change if your DB has a password
+$db_name = "kbhs";
 
-// Query to get user data
-$sql = "SELECT * FROM users WHERE username = ?";
-$stmt = $pdo->prepare($sql);
-$stmt->execute([$username]);
+$conn = new mysqli($host, $db_user, $db_pass, $db_name);
 
-$user = $stmt->fetch();
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
-// Check if the user exists and verify the password
-if ($user && password_verify($password, $user['password'])) {
-    // Successful login
-    session_start();
-    $_SESSION['username'] = $user['username'];
-    $_SESSION['role'] = $user['role'];
-    
-    // Redirect based on role
-    if ($user['role'] == 'admin') {
-        header('Location: admin_dashboard.php');
-    } elseif ($user['role'] == 'teacher') {
-        header('Location: teacher_dashboard.php');
-    } elseif ($user['role'] == 'student') {
-        header('Location: student_dashboard.php');
+// Sanitize input
+$username = trim($_POST['username']);
+$password = trim($_POST['password']);
+$role = $_POST['role'];
+
+// Function to redirect with error
+function redirectWithError($msg) {
+    header("Location: login.php?error=" . urlencode($msg));
+    exit();
+}
+
+// Check which table to query
+if ($role === "student") {
+    $stmt = $conn->prepare("SELECT * FROM students WHERE admission_number = ? AND password = ?");
+
+} elseif ($role === "teacher") {
+    $stmt = $conn->prepare("SELECT * FROM teachers WHERE teacher_id = ? AND password = ?");
+} elseif ($role === "admin") {
+    $stmt = $conn->prepare("SELECT * FROM admins WHERE admin_id = ? AND password = ?");
+} else {
+    redirectWithError("Invalid role selected.");
+}
+
+$stmt->bind_param("ss", $username, $password);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows === 1) {
+    // Login successful
+    $_SESSION['username'] = $username;
+    $_SESSION['role'] = $role;
+
+    // Redirect to role-specific dashboard
+    switch ($role) {
+        case "student":
+            header("Location: student_dashboard.php");
+            break;
+        case "teacher":
+            header("Location: teacher_dashboard.php");
+            break;
+        case "admin":
+            header("Location: admin_dashboard.php");
+            break;
     }
     exit();
 } else {
-    // Invalid login
-    echo "Invalid username or password.";
+    redirectWithError("Invalid credentials.");
 }
+
+$stmt->close();
+$conn->close();
 ?>
